@@ -1,13 +1,7 @@
-//1. Display current date and time at the top of the screen
-//2. Create blocks with forms for each hour of the day
-//2.5. 1 row 3 columns
-//3. Create buttons for each block that saves the form content to local storage.
-//4. Create functions to dynamically change the classes depending upon the current time.
-
-// $('#task9').val() <--- Should pull string of text area
-
 $(document).ready(function () {
   $("#currentDay").text(moment().format("MMMM Do YYYY"));
+
+  //Gets local storage of each task and sets text area
 
   function loading() {
     var task9 = localStorage.getItem("textarea9");
@@ -40,6 +34,8 @@ $(document).ready(function () {
     var task6 = localStorage.getItem("textarea6");
     $("#task6").text(task6);
   }
+
+  //Saves text area of each box on any click
 
   $(".saveBtn").click(function () {
     var task9 = $("#task9").val();
@@ -83,5 +79,26 @@ $(document).ready(function () {
     localStorage.setItem("textarea6", task6);
   });
 
+  //calls Loading function
+
   loading();
+
+  //Sets color of each task based on time
+
+  $(".col-md-10").each(function () {
+    var taskTime = parseInt($(this).attr("data-value"));
+    var actualTime = moment().format("H");
+
+    if (taskTime < actualTime) {
+      $(this).addClass("past");
+    }
+
+    if (taskTime > actualTime) {
+      $(this).addClass("future");
+    }
+
+    if (taskTime == actualTime) {
+      $(this).addClass("present");
+    }
+  });
 });
