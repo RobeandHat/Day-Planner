@@ -10,4 +10,4 @@ This is code for a day planner which dynamically color codes time blocks based o
 
 ## Website Screenshot
 
-![Main Page](https://github.com/RobeandHat/Javascript-Code-Quiz-2/blob/main/assets/Images/Main%20Page.jpg)
+![Main Page](https://github.com/RobeandHat/Day-Planner/blob/main/assets/images/screenshot.png)
